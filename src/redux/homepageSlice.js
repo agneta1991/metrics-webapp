@@ -23,7 +23,7 @@ export const fetchWeatherData = createAsyncThunk(
     try {
       const promises = endpoints.map(async (endpoint) => {
         const response = await fetch(
-          `http://api.weatherstack.com/current?access_key=3c1986ec1a4a638efb457d2766824b65&query=${endpoint}`,
+          `http://api.weatherstack.com/current?access_key=219e43a921479ece73673e348ada0b40&query=${endpoint}`,
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -62,5 +62,7 @@ export const selectWeatherData = (state) => state.weather.weatherData;
 export const selectWeatherStatus = (state) => state.weather.status;
 export const selectWeatherError = (state) => state.weather.error;
 // eslint-disable-next-line max-len
-export const selectWeatherForCity = (state, cityName) => state.weather.weatherData.find((city) => city.location.name === cityName);
+export const selectWeatherForCity = (state, countryName) => state.weather.weatherData.find(
+  (city) => city.location.country === countryName,
+);
 export default weatherSlice.reducer;
