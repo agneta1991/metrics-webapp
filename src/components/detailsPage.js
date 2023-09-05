@@ -35,8 +35,8 @@ function DetailsPage() {
     );
   }
 
-  const location = weatherData?.location;
-  const currentWeather = weatherData?.current;
+  const { location } = weatherData;
+  const currentWeather = weatherData.current;
 
   return (
     <div>

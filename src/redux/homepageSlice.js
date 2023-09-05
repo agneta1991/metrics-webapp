@@ -18,44 +18,40 @@ const initialState = {
 };
 
 export const fetchWeatherData = createAsyncThunk(
-  'weather/fetchWeatherData',
-  async () => {
-    const dataPromises = endpoints.map(async (endpoint) => {
-      try {
-        const response = await fetch(
-          `http://api.weatherstack.com/current?access_key=4d314c94f11f9e48f4cb2ee884f63874&query=${endpoint}`,
-        );
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data;
-      } catch (error) {
-        throw new Error('Failed to fetch weather data');
+  "weather/fetchWeatherData",
+  endpoints.forEach(async (endpoint) => {
+    try {
+      const response = await fetch(
+        `http://api.weatherstack.com/current?access_key=3c1986ec1a4a638efb457d2766824b65&query=${endpoint}`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    });
-
-    const weatherData = await Promise.all(dataPromises);
-
-    return weatherData;
-  },
+      const data = await response.json();
+      console.log(data.location.name);
+      console.log(data);
+      return data;
+    } catch (error) {
+      throw new Error("Failed to fetch weather data");
+    }
+  })
 );
 
 const weatherSlice = createSlice({
-  name: 'weather',
+  name: "weather",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchWeatherData.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchWeatherData.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "Succsess";
         state.weatherData = action.payload;
       })
       .addCase(fetchWeatherData.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
