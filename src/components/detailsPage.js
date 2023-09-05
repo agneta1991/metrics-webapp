@@ -1,46 +1,15 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import {
-  fetchWeatherData,
-  selectWeatherData,
-  selectWeatherStatus,
-  selectWeatherError,
-} from '../redux/homepageSlice';
+import { selectWeatherForCity } from '../redux/homepageSlice';
 
 function DetailsPage() {
   const { query } = useParams();
-  const dispatch = useDispatch();
-  const weatherData = useSelector(selectWeatherData);
-  const status = useSelector(selectWeatherStatus);
-  const error = useSelector(selectWeatherError);
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchWeatherData(query));
-    }
-  }, [dispatch, status, query]);
-
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
-
-  if (status === 'failed') {
-    return (
-      <div>
-        Error:
-        {error}
-      </div>
-    );
-  }
-
-  const { location } = weatherData;
-  const currentWeather = weatherData.current;
+  const cityWeather = useSelector((state) => selectWeatherForCity(state, query));
+  const { location, current } = cityWeather;
 
   return (
     <div>
-      {location && currentWeather && (
+      {location && current && (
         <div>
           <h2>
             Weather in
@@ -57,47 +26,47 @@ function DetailsPage() {
           <div>
             <p>
               Current Observation Time:
-              {currentWeather.observation_time}
+              {current.observation_time}
             </p>
             <p>
               Temperature:
-              {currentWeather.temperature}
+              {current.temperature}
               °C
             </p>
             <p>
               Weather Description:
-              {currentWeather.weather_descriptions[0]}
+              {current.weather_descriptions[0]}
             </p>
             <p>
               Wind Speed:
-              {currentWeather.wind_speed}
+              {current.wind_speed}
               {' '}
               km/h
             </p>
             <p>
               Wind Degree:
-              {currentWeather.wind_degree}
+              {current.wind_degree}
               °
             </p>
             <p>
               Pressure:
-              {currentWeather.pressure}
+              {current.pressure}
               {' '}
               mb
             </p>
             <p>
               Humidity:
-              {currentWeather.humidity}
+              {current.humidity}
               %
             </p>
             <p>
               Cloud Cover:
-              {currentWeather.cloudcover}
+              {current.cloudcover}
               %
             </p>
             <p>
               Visibility:
-              {currentWeather.visibility}
+              {current.visibility}
               {' '}
               km
             </p>

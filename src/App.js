@@ -13,7 +13,7 @@ function App() {
         <div className="whole-page">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/countries/:query" element={<DetailsPage />} />
+            <Route path="/city/:query" element={<DetailsPage />} />
           </Routes>
         </div>
       </Router>
