@@ -61,7 +61,6 @@ const weatherSlice = createSlice({
 export const selectWeatherData = (state) => state.weather.weatherData;
 export const selectWeatherStatus = (state) => state.weather.status;
 export const selectWeatherError = (state) => state.weather.error;
-// eslint-disable-next-line max-len
 export const selectWeatherForCity = (state, countryName) => state.weather.weatherData.find(
   (city) => city.location.country === countryName,
 );

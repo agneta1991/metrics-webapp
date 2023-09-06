@@ -1,3 +1,9 @@
+.whole-page {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 img {
   width: auto;
   height: 4rem;
@@ -135,4 +141,32 @@ h3 {
 
 #weather-app {
   text-align: center;
+}
+
+.home-navbar {
+  display: flex;
+  height: 2.1rem;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(207, 65, 119);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.home-navbar > img {
+  height: 1.2rem;
+  width: auto;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+.home-navbar > p {
+  color: white;
+  font-weight: 100;
+  opacity: 0.5;
+  padding: 0 0.8rem;
+  margin-top: 1rem;
+  width: 40%;
 }

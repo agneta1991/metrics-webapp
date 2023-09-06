@@ -130,8 +130,6 @@ To run tests after setting up the linters, run the following command:
 - Twitter: [@twitterhandle](https://twitter.com/pupienytea)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/agneta-pupienyte-124a27256/?originalSubdomain=lt)
 
-👤 **Nelson Sakwa on Behance who created the design of the app and was kind to share it for learning in recreating it**
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
@@ -164,6 +162,8 @@ If you like my page please show your support and give this page a star!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 <br>
+To start with i would like to thank Nelson Sakwa on Behance who created the design of the app and was kind to share it in order for others to learn.
+
 
 <br>
 We would like to extend my heartfelt gratitude to Microverse for providing me with the opportunity to undertake this project. Additionally, we are immensely thankful to the code reviewers who takes the time to assess my work and provide valuable feedback, which greatly contributed to the refinement and success of the project. Your guidance and support have been invaluable throughout this endeavor, and I am truly grateful for your contributions.

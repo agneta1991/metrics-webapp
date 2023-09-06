@@ -41,6 +41,25 @@ function HomePage() {
 
   return (
     <div className="main-div">
+      <nav className="home-navbar">
+        <img
+          className="arrow"
+          src="https://img.icons8.com/windows/32/ffffff/back.png"
+          alt="forward"
+        />
+
+        <p>COUNTRIES</p>
+        <img
+          className="microphone"
+          src="https://img.icons8.com/material/24/ffffff/microphone--v3.png"
+          alt="microphone--v3"
+        />
+        <img
+          className="settings"
+          src="https://img.icons8.com/ios/50/ffffff/settings--v1.png"
+          alt="settings--v1"
+        />
+      </nav>
       <header className="header-div">
         <img src={world} alt="world" />
         <h2 id="weather-app">Weather app</h2>
