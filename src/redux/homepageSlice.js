@@ -23,7 +23,7 @@ export const fetchWeatherData = createAsyncThunk(
     try {
       const promises = endpoints.map(async (endpoint) => {
         const response = await fetch(
-          `http://api.weatherstack.com/current?access_key=219e43a921479ece73673e348ada0b40&query=${endpoint}`,
+          `http://api.weatherstack.com/current?access_key=a2c151427ae4b1988d05df99551b944a&query=${endpoint}`,
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');

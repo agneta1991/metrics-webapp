@@ -16,7 +16,7 @@ import japan from './images/japan.png';
 import southAfrica from './images/southAfrica.png';
 import usa from './images/usa.png';
 import world from './images/world.png';
-import './styles/HomePage.css';
+import './styles/pageStyle.css';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -43,9 +43,9 @@ function HomePage() {
     <div className="main-div">
       <header className="header-div">
         <img src={world} alt="world" />
-        <h1>Weather app</h1>
+        <h2 id="weather-app">Weather app</h2>
       </header>
-      <h3>Stats By Country</h3>
+      <h3>STATS BY COUNTRY</h3>
       {status === 'loading' && <p>Loading...</p>}
       {status === 'failed' && (
         <p>
@@ -57,12 +57,14 @@ function HomePage() {
         <ul>
           {weatherData.map((data, index) => {
             let className;
-            if (index % 3 === 0) {
+            if (index % 4 === 0) {
               className = 'first';
-            } else if (index % 3 === 1) {
+            } else if (index % 4 === 1) {
               className = 'second';
-            } else {
+            } else if (index % 4 === 2) {
               className = 'third';
+            } else {
+              className = 'fourth';
             }
 
             return (
