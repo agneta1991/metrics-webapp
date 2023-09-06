@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { selectWeatherForCity } from '../redux/homepageSlice';
+import { useEffect } from 'react';
+import { selectWeatherForCity, fetchWeatherData } from '../redux/homepageSlice';
 import './styles/pageStyle.css';
 import australia from './images/australia.png';
 import brazil from './images/brazil.png';
@@ -25,16 +26,24 @@ const countryImages = {
 
 const DetailsPage = () => {
   const { query } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchWeatherData());
+  }, [dispatch]);
+
   const cityWeather = useSelector((state) => selectWeatherForCity(state, query));
 
   return (
     <div>
       <nav className="home-navbar">
-        <img
-          className="arrow"
-          src="https://img.icons8.com/windows/32/ffffff/back.png"
-          alt="forward"
-        />
+        <Link to="/">
+          <img
+            className="arrow"
+            src="https://img.icons8.com/windows/32/ffffff/back.png"
+            alt="forward"
+          />
+        </Link>
         <p>CITY WEATHER</p>
         <img
           className="microphone"
@@ -69,8 +78,10 @@ const WeatherDetails = ({ cityWeather }) => {
       </div>
       <h3>COUNTRY/CITY WEATHER BREAKDOWN</h3>
       <div>
-        {Object.entries(current).map(([key, value]) => (
-          <WeatherDetailItem key={key} label={key} value={value} />
+        {Object.entries(current).map(([key, value], index) => (
+          <div key={key} className={index % 2 === 0 ? 'one' : 'two'}>
+            <WeatherDetailItem key={key} label={key} value={value} />
+          </div>
         ))}
       </div>
     </div>
@@ -79,11 +90,13 @@ const WeatherDetails = ({ cityWeather }) => {
 
 const WeatherDetailItem = ({ label, value }) => (
   <div className="weather-detail-item">
-    <p>
-      {label}
-      :
-    </p>
-    <p>{value}</p>
+    {label}
+    :
+    {label === 'weather_icons' ? (
+      <img className="weather-icon" src={value} alt="weather_icon" />
+    ) : (
+      <p>{value}</p>
+    )}
   </div>
 );
 
@@ -109,7 +122,11 @@ WeatherDetails.propTypes = {
 
 WeatherDetailItem.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.array,
+  ]).isRequired,
 };
 
 export default DetailsPage;
