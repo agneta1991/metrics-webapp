@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+# 📗 Table of Contents
 
-### `npm start`
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+    - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📖 Country weather app <a name="about-project"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+<br>
+"Country weather app" is a webapp for everyone who is interested in weather and would like to check all the metrics including temperature, wind speed, humidity, etc. It is a Single Page App (SPA) that allows users to:<br>
+- Choose a country to dive deeper into its weather metrics.<br>
+- When clicked on a country it displayes all the metrics of that country capital's in regards of weather.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
 
-### `npm run build`
+## 🛠 Built With <a name="built-with"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- HTML.
+- CSS.
+- JavaScript
+- LINTERS.
+- REACT.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack <a name="tech-stack"></a>
 
-### `npm run eject`
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+    <li><a href="https://www.javascript.com/">JavaScript</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Features <a name="key-features"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Project is created using React**
+- **Data has been fetched and displayed on the app from http://api.weatherstack.com/ with different endpoints**
+- **Easy to reuse components for future projects**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+## 🚀 Live Demo <a name="live-demo"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Link to My Video](https://www.loom.com/share/ce31ad4234d14e6db6f758e22814a103?sid=124ad354-2a7e-4559-9e0b-221f23121417)
 
-### Code Splitting
+- [Click me to view deployed project!](coming soon!)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Analyzing the Bundle Size
+## 💻 Getting Started <a name="getting-started"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To get a local copy up and running, follow these steps.
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In order to run this project you need:
 
-### Advanced Configuration
+- A Chrome browser
+- npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Setup
 
-### Deployment
+Clone this repository to your desired folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```sh
+  cd my-folder
+  git clone git@github.com:agneta1991/metrics-webapp.git
+```
 
-### `npm run build` fails to minify
+### Install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Install the prerequisites this project using:
+
+```sh
+  cd metrics-webapp
+  npm install
+  npm run build
+```
+
+### Usage
+
+To run the project:
+
+```sh
+  npm start
+```
+
+### Run tests
+
+To run tests after setting up the linters, run the following command:
+
+```sh
+  npx eslint "**/*.{js,jsx}"
+```
+
+```sh
+  npx stylelint "**/*.{css,scss}"
+```
+## 👥 Author <a name="authors"></a>
+
+👤 **Agneta Pupienyte**
+
+- GitHub: [@githubhandle](https://github.com/agneta1991)
+- Twitter: [@twitterhandle](https://twitter.com/pupienytea)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/agneta-pupienyte-124a27256/?originalSubdomain=lt)
+
+👤 **Nelson Sakwa on Behance who created the design of the app and was kind to share it for learning in recreating it**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+<br>
+
+-**In the future CSS transitions & animation will be added to the page, to have more inviting / interactive feel for the user**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>Contributions, issues, and feature requests are welcome!
+
+<br>
+
+Feel free to check the [issues page](https://github.com/agneta1991/metrics-webapp/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+<br>
+
+If you like my page please show your support and give this page a star!
+<br>
+<br>
+[![Star](https://img.shields.io/github/stars/agneta1991/metrics-webapp?style=social)](https://github.com/agneta1991/metrics-webapp)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+<br>
+
+<br>
+We would like to extend my heartfelt gratitude to Microverse for providing me with the opportunity to undertake this project. Additionally, we are immensely thankful to the code reviewers who takes the time to assess my work and provide valuable feedback, which greatly contributed to the refinement and success of the project. Your guidance and support have been invaluable throughout this endeavor, and I am truly grateful for your contributions.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
