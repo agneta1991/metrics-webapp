@@ -1,6 +1,9 @@
 <a name="readme-top"></a>
 
 <div align="center">
+  
+  <img src="./src/components/images/logo.jpg" alt="logo" width="140"  height="auto" />
+  <br/>
 
 </div>
 
