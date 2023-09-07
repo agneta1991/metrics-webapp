@@ -69,7 +69,7 @@
 
 - [Link to My Video](https://www.loom.com/share/ce31ad4234d14e6db6f758e22814a103?sid=124ad354-2a7e-4559-9e0b-221f23121417)
 
-- [Click me to view deployed project!](coming soon!)
+- [Click me to view deployed project!](https://zingy-stroopwafel-f883fb.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
