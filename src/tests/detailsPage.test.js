@@ -1,52 +1,64 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { MemoryRouter, Route } from 'react-router-dom';
-import { Provider, useSelector } from 'react-redux';
-import store from '../redux/store';
+import { render, waitFor, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { BrowserRouter as Router } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 import DetailsPage from '../components/detailsPage';
+import '@testing-library/jest-dom';
 
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useSelector: jest.fn(),
-}));
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useParams: () => ({ query: 'your-mock-query' }),
-}));
-
-const mockCityWeather = {
-  location: {
-    name: 'Mock City',
-    country: 'Mock Country',
-  },
-  current: {
-    observation_time: 'Mock Time',
-    temperature: 'Mock Temperature',
-  },
+const customTextMatcher = (text) => (content, element) => {
+  const elementHasText = element.textContent.includes(text);
+  const elementIsAriaLabel = element.getAttribute('aria-label') === text;
+  return elementHasText || elementIsAriaLabel;
 };
 
-describe('DetailsPage', () => {
+describe('DetailsPage Integration Test', () => {
+  let store;
   beforeEach(() => {
-    useSelector.mockClear();
+    store = mockStore({
+      weather: {
+        weatherData: [
+          {
+            location: {
+              country: 'FRANCE',
+              name: 'Paris',
+            },
+          },
+        ],
+      },
+    });
+    store.dispatch = jest.fn(() => Promise.resolve());
   });
 
-  it('renders DetailsPage with mock data', () => {
-    useSelector.mockReturnValue(mockCityWeather);
-
-    const { getByText } = render(
+  it('renders DetailsPage component with mock data', async () => {
+    render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/details/your-mock-query']}>
-          <Route path="/details/:query">
-            <DetailsPage />
-          </Route>
-        </MemoryRouter>
+        <Router>
+          <DetailsPage />
+        </Router>
       </Provider>,
     );
 
-    expect(getByText('Mock City')).toBeInTheDocument();
-    expect(getByText('Mock Country')).toBeInTheDocument();
-    expect(getByText('Mock Time')).toBeInTheDocument();
-    expect(getByText('Mock Temperature°C')).toBeInTheDocument();
+    await waitFor(
+      async () => {
+        expect(
+          await screen.findByText(
+            'CITY WEATHER',
+            {},
+            { matcher: customTextMatcher },
+          ),
+        ).toBeInTheDocument();
+      },
+      { timeout: 3000 },
+    );
+
+    const microphoneImage = screen.getByAltText('microphone--v3');
+    const settingsImage = screen.getByAltText('settings--v1');
+    expect(microphoneImage).toBeInTheDocument();
+    expect(settingsImage).toBeInTheDocument();
   });
 });

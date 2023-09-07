@@ -89,15 +89,17 @@ const WeatherDetails = ({ cityWeather }) => {
 };
 
 const WeatherDetailItem = ({ label, value }) => (
-  <div className="weather-detail-item">
-    {label}
-    :
+  <>
+    <p>
+      {label}
+      :
+    </p>
     {label === 'weather_icons' ? (
       <img className="weather-icon" src={value} alt="weather_icon" />
     ) : (
       <p>{value}</p>
     )}
-  </div>
+  </>
 );
 
 WeatherDetails.propTypes = {
