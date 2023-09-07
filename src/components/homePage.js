@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
@@ -24,6 +24,8 @@ function HomePage() {
   const status = useSelector(selectWeatherStatus);
   const error = useSelector(selectWeatherError);
 
+  const [search, setSearch] = useState('');
+
   useEffect(() => {
     dispatch(fetchWeatherData());
   }, [dispatch]);
@@ -39,6 +41,16 @@ function HomePage() {
     'United States of America': usa,
   };
 
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredWeatherData = weatherData.filter((data) => {
+    const countryName = data.location.country.toLowerCase();
+    const searchInput = search.toLowerCase();
+    return countryName.includes(searchInput);
+  });
+
   return (
     <div className="main-div">
       <nav className="home-navbar">
@@ -48,7 +60,14 @@ function HomePage() {
           alt="forward"
         />
 
-        <p>COUNTRIES</p>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search by a Country"
+          value={search}
+          onChange={handleChange}
+        />
         <img
           className="microphone"
           src="https://img.icons8.com/material/24/ffffff/microphone--v3.png"
@@ -74,7 +93,7 @@ function HomePage() {
       )}
       {status === 'Succsess' && (
         <ul>
-          {weatherData.map((data, index) => {
+          {filteredWeatherData.map((data, index) => {
             let className;
             if (index % 4 === 0) {
               className = 'first';
