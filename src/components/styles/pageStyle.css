@@ -1,0 +1,176 @@
+.whole-page {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: auto;
+  height: 4rem;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+body {
+  background-color: rgba(251, 80, 146, 1);
+  font-family: 'Gill Sans', sans-serif;
+}
+
+p {
+  width: 10rem;
+  margin: 0;
+  text-align: right;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.one,
+.first,
+.fourth {
+  background-color: rgb(219, 70, 128);
+  margin: 0;
+}
+
+.two,
+.third,
+.second {
+  background-color: rgb(207, 65, 119);
+  margin: 0;
+}
+
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem;
+  padding-bottom: 0.6rem;
+  gap: 2rem;
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header-div > h2 {
+  text-align: right;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+li {
+  flex-basis: 50%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #fff;
+}
+
+h3 {
+  color: #fff;
+  margin: 0;
+  padding: 0.5rem;
+  padding-left: 0.7rem;
+  padding-bottom: 0.7rem;
+  background-color: rgb(207, 65, 119);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.arrow {
+  width: 1.2rem;
+  height: auto;
+  float: right;
+}
+
+.arrow-two {
+  width: 1.2rem;
+  height: auto;
+  float: left;
+  padding-right: 1rem;
+  margin: 0;
+}
+
+.one > p {
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  padding: 0.4rem 1.5rem;
+}
+
+.two > p {
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  padding: 0.4rem 1.5rem;
+}
+
+.one,
+.two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  padding: 1rem;
+}
+
+.one :nth-child(2),
+.two :nth-child(2) {
+  text-align: right;
+}
+
+.link-div > p {
+  text-transform: uppercase;
+}
+
+#weather-app {
+  text-align: center;
+}
+
+.home-navbar {
+  display: flex;
+  height: 2.1rem;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(207, 65, 119);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.home-navbar > img {
+  height: 1.2rem;
+  width: auto;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+.home-navbar > p {
+  color: white;
+  font-weight: 100;
+  opacity: 0.5;
+  padding: 0 0.8rem;
+  margin-top: 1rem;
+  width: 40%;
+}
+
+#search {
+  margin-top: 1rem;
+}
